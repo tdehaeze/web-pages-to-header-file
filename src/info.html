@@ -1,7 +1,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="style.css" type="text/css" />
-<script src="microajax.js"></script>
+<script src="script.js"></script>
 <div class="header">
   <a href="./index.html" class="btn btn-s btn-back">&lt;</a><div class="title">Network Information</div>
 </div>
@@ -15,3 +15,9 @@
 </table>
 <br>
 <a href="javascript:GetState()" class="btn btn-s btn-blue btn-full">Refresh</a>
+
+<script>
+window.onload = function () {
+  setValues("/admin/infovalues");
+};
+</script>

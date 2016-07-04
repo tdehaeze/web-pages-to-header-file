@@ -1,23 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>General Informations</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <div class="header">
-    <a href="./index.html" class="btn btn-s btn-back">&lt;</a><div class="title">General Settings</div>
-  </div>
-  <hr>
-  <form action="" method="post">
-    <label for="devicename">Name of Device : <br><br><input type="text" name="devicename" value="" id="devicename" class="big-input"></label>
-    <br><br>
-    <input type="submit" class="btn btn-s btn-blue btn-full" value="Save">
-  </form>
-</body>
-</html>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+<script src="script.js"></script>
+<div class="header">
+  <a href="./" class="btn btn-s btn-back">&lt;</a><div class="title">General Settings</div>
+</div>
+<hr>
+<form action="" method="post">
+  <label for="devicename">Name of Device : <br><br><input type="text" name="devicename" value="" id="devicename" class="big-input"></label>
+  <br><br>
+  <input type="submit" class="btn btn-s btn-blue btn-full" value="Save">
+</form>
 
+<script>
+window.onload = function () {
+  setValues("/admin/generalvalues");
+};
+</script>
