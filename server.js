@@ -1,12 +1,16 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 
 var app = express();
 
-app.get('/', function(request, response){
-  response.sendFile(__dirname + '/src/index.html');
-});
+var config_server = {
+  DeviceName: "esp8266"
+};
 
-app.get('/index.html', function(request, response){
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
+
+app.get('/', function(request, response){
   response.sendFile(__dirname + '/src/index.html');
 });
 
@@ -26,17 +30,26 @@ app.get('/general.html', function(request, response){
   response.sendFile(__dirname + '/src/general.html');
 });
 
+app.post('/general.html', function(request, response){
+  console.log('request.body', request.body);
+  config_server.DeviceName = request.body.devicename;
+  response.redirect(302, '/reload.html');
+});
+
 app.get('/info.html', function(request, response){
   response.sendFile(__dirname + '/src/info.html');
 });
 
+app.get('/reload.html', function(request, response){
+  response.sendFile(__dirname + '/src/reload.html');
+});
+
 app.get('/admin/generalvalues', function(request, response){
-  response.send('devicename|esp8266|input');
+  response.send('devicename|' + config_server.DeviceName + '|input');
 });
 
 app.get('/admin/connectionstate', function(request, response){
-  response.send('connectionstate|Connected|div');
-  // response.send('connectionstate|Disconnected|div');
+  response.send('connectionstate|Connected|div\nnetworks|Found 10 Networks<br><table border="0" cellspacing="0" cellpadding="3" class=""><tr bgcolor=\'#DDDDDD\'><td><strong>Name</strong></td><td><strong>Quality</strong></td><td><strong>Enc</strong></td><tr><tr><td><a href=\'javascript:setssid("Rtone Cisco")\'>Rtone Cisco</a></td><td>100%</td><td>*</td></tr><tr><td><a href=\'javascript:setssid("Rtone Cisco")\'>Rtone Cisco</a></td><td>72%</td><td>*</td></tr><tr><td><a href=\'javascript:setssid("HP-Print-3E-Officejet Pro X476dw")\'>HP-Print-3E-Officejet Pro X476dw</a></td><td>34%</td><td>*</td></tr><tr><td><a href=\'javascript:setssid("FreeWifi_secure")\'>FreeWifi_secure</a></td><td>16%</td><td>*</td></tr><tr><td><a href=\'javascript:setssid("FreeWifi")\'>FreeWifi</a></td><td>18%</td><td> </td></tr><tr><td><a href=\'javascript:setssid("FreeWifi_secure")\'>FreeWifi_secure</a></td><td>18%</td><td>*</td></tr><tr><td><a href=\'javascript:setssid("m2o")\'>m2o</a></td><td>20%</td><td>*</td></tr><tr><td><a href=\'javascript:setssid("FreeWifi")\'>FreeWifi</a></td><td>16%</td><td> </td></tr><tr><td><a href=\'javascript:setssid("Maison")\'>Maison</a></td><td>30%</td><td>*</td></tr><tr><td><a href=\'javascript:setssid("FreeWifi_secure")\'>FreeWifi_secure</a></td><td>24%</td><td>*</td></tr></table>|div');
 });
 
 app.get('/admin/values', function(request, response){
