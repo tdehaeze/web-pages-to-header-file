@@ -21,7 +21,7 @@ gulp.task('minifycss', function() {
 
 gulp.task('minifyhtml', function() {
   return gulp.src('./src/*.html')
-    .pipe(htmlmin({collapseWhitespace: true, minifyJS: true}))
+    .pipe(htmlmin({collapseWhitespace: true, minifyJS: true, removeComments: true}))
     .pipe(foreach(function(stream, file){
       return stream.pipe(insert.prepend('const char PAGE_' + path.parse(file.path).name.toUpperCase() + '[] = R"=====(\n'));
     }))

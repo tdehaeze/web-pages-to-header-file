@@ -42,6 +42,7 @@ table td:first-child {
 }
 .btn {
     display: block;
+    box-sizing: initial;
     border: 1px solid black;
     border-radius: 0.3em;
     text-align: center;
@@ -67,7 +68,7 @@ table td:first-child {
 }
 input {
     border: 1px black solid;
-    border-radius: 6px;
+    border-radius: 0.3em;
 }
 input.big-input {
     font-size: 1.5em;
