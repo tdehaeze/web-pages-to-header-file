@@ -13,6 +13,7 @@ app.get('/config.html', function(request, response){ response.sendFile(__dirname
 app.get('/general.html', function(request, response){ response.sendFile(__dirname + '/src/general.html'); });
 app.get('/info.html', function(request, response){ response.sendFile(__dirname + '/src/info.html'); });
 app.get('/reload.html', function(request, response){ response.sendFile(__dirname + '/src/reload.html'); });
+app.get('/value.html', function(request, response){ response.sendFile(__dirname + '/src/value.html'); });
 
 app.get('/post/connection/form', function(request, response){
   console.log('request.query', request.query);
@@ -35,6 +36,10 @@ app.get('/get/connection/form', function(request, response){
 });
 app.get('/get/connection/info', function(request, response){
   response.send('x_ssid|rtone|div\nx_ip|192.168.1.211|div\nx_netmask|255.255.255.0|div\nx_gateway|255.255.255.0|div\nx_mac|01:00:0C:CC:CC:CC|div');
+});
+app.get('/get/pin/value', function(request, response){
+  var pinValue = Math.round(3.3*Math.random()*100)/100;
+  response.send('value|' + pinValue + '|div\n');
 });
 
 app.listen(8080);
