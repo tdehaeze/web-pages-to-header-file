@@ -1,12 +1,12 @@
-var gulp = require('gulp');
-var cleanCSS = require('gulp-clean-css');
-var htmlmin = require('gulp-htmlmin');
-var insert = require('gulp-insert');
-var concat = require('gulp-concat');
-var path = require('path');
-var foreach = require('gulp-foreach');
-var clean = require('gulp-clean');
-var uglify = require('gulp-uglifyjs');
+var gulp = require('gulp'),
+    cleanCSS = require('gulp-clean-css'),
+    htmlmin = require('gulp-htmlmin'),
+    insert = require('gulp-insert'),
+    concat = require('gulp-concat'),
+    path = require('path'),
+    foreach = require('gulp-foreach'),
+    clean = require('gulp-clean'),
+    uglify = require('gulp-uglifyjs');
 
 gulp.task('minifycss', function() {
   return gulp.src('./src/*.css')
