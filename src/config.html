@@ -3,18 +3,18 @@
 <link rel="stylesheet" href="style.css" type="text/css"/>
 <script src="script.js"></script>
 <div class="header">
-  <a href="./" class="btn btn-s btn-back">&lt;</a><div class="title">Network Configuration</div>
+    <a href="./" class="btn btn-s btn-back">&lt;</a><div class="title">Network Configuration</div>
 </div>
 <hr>
 <div class="subtitle">Connect to Router with these settings:</div>
 <!-- <form action="/post/connection/form" method="get"> -->
-  <table border="0"  cellspacing="0" cellpadding="3">
+<table border="0"  cellspacing="0" cellpadding="3">
     <tr><td align="right">SSID:</td><td><input type="text" id="ssid" name="ssid" value=""></td></tr>
     <tr><td align="right">Password:</td><td><input type="password" id="password" name="password" value=""></td></tr>
-  </table>
-  <br>
-  <a href="javascript:sendForm()" class="btn btn-s btn-blue btn-full">Save</a>
-  <!-- <input type="submit" class="btn btn-s btn-blue btn-full" value="Save"> -->
+</table>
+<br>
+<a href="javascript:sendForm()" class="btn btn-s btn-blue btn-full">Save</a>
+<!-- <input type="submit" class="btn btn-s btn-blue btn-full" value="Save"> -->
 <!-- </form> -->
 <hr>
 <div class="subtitle">Connection State:</div>
@@ -23,7 +23,7 @@
 <hr>
 <div class="subtitle">Networks:</div>
 <table border="0"  cellspacing="3">
-  <tr><td><div id="networks">Scanning...</div></td></tr>
+    <tr><td><div id="networks">Scanning...</div></td></tr>
 </table>
 <br>
 <a href="javascript:getNetworks()" class="btn btn-s btn-blue btn-full">Refresh</a>

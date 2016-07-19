@@ -1,6 +1,15 @@
-# Gulp script to convert html/css/js files to be used in a micro-controller
+# Gulp script to convert html/css/js files to be used into a micro-controller
 
 Checkout the following [project](https://github.com/tdehaeze/esp8266-simple-web-server) where this script is used with an ESP8266 to build a web-server.
+
+## Installation
+
+First you need to have installed the following :
+ - [nodejs](https://nodejs.org/en/)
+ - [npm](https://www.npmjs.com/)
+ - [gulp-cli](http://gulpjs.com/) : `npm install --global gulp-cli`
+
+Then, just use `npm install` in the root of the project to install all the dependancies.
 
 ## How to use the web server
 The web-server used for testing is based on [expressjs](http://expressjs.com/) on top of [nodejs](https://nodejs.org/).

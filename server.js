@@ -42,4 +42,31 @@ app.get('/get/pin/value', function(request, response){
   response.send('value|' + pinValue + '|div\n');
 });
 
-app.listen(8080);
+var times = [];
+app.get('/image', function(request, response, next){
+  console.time('image');
+  var start = new Date();
+  response.sendFile(__dirname + '/server.js', {}, function(){
+    var end = new Date();
+    var time = end - start;
+    console.log(time + "ms");
+    var speed = 400 / time;
+    times.push(time);
+    console.log(get2Digits(speed) + "mo/s");
+    console.log("mean : " + get2Digits(getMeanValue(times)) + "mo/s");
+    console.timeEnd('image');
+  });
+});
+
+app.listen(8080, function(){
+    console.log('Starting webserver on port 8080');
+});
+
+function getMeanValue (times) {
+  var sum = times.reduce(function(a, b) { return a + b; });
+  return 400 / (sum / times.length);
+}
+
+function get2Digits (speed) {
+  return (Math.round(100 * speed)/100);
+}
